@@ -1,7 +1,9 @@
 #include <STC15F2K60S2.h>	//STC15W4K48S4 专用头文件
 #include "LT8910.h"
+
 #define uchar unsigned char 
 #define uint unsigned int
+
 uchar RegH;
 uchar RegL;
 /* ====================== LT8910端口定义 ====================== */ 
@@ -17,6 +19,7 @@ void Delay_us(uint n)
 {
     for(;n>0;n--);
 }
+
 /* ========================= 写寄存器 ========================= */ 
 void SPI_WriteReg(uchar addr,uchar H,uchar L)
 {
@@ -45,7 +48,8 @@ void SPI_WriteReg(uchar addr,uchar H,uchar L)
  }
     SPI_SS = 1;
 }
-/* ========================= 读寄存器 ========================= *
+/*
+//读寄存器
 void SPI_ReadReg(uchar addr)
 {
     int i;	
@@ -73,8 +77,8 @@ void SPI_ReadReg(uchar addr)
     RegL |= MISO;
  }
     SPI_SS = 1;
-}
-/* ========================== 初始化 ========================== */
+}*/
+
 void LT8910_Init(void)
 {
     RST = 0;	   //复位 拉低
@@ -116,6 +120,7 @@ void LT8910_Init(void)
 //    SPI_WriteReg(44, 0x10, 0x00 );  //通讯速率 62.5Kbps~1M
 //    SPI_WriteReg(45, 0x04, 0x80 );  //	
 }
+
 /* ========================= 发送字节 ========================= */ 
 void SPI_WriteReg8(uchar add,uchar H)
 {

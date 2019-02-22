@@ -13,6 +13,7 @@ STC迷你四轴技术交流群：421109612
 #include "STC15W4K-ADC.h"	//STC15W4K-ADC	硬件ADC模数转换
 #include "EEPROM.h"			//STC-EEPROM内部存储
 #include "LT8910.h"	    	//2.4G无线收发模块
+
 /***********************************************************************
 设置按键 IO口定义
 **********************************************************************/
@@ -34,6 +35,7 @@ void Delay(unsigned int s)
 	for(i=0; i<s; i++)
 		for(j=0; j<250; j++);
 }
+
 //--------------------------------------------------//
 //  飞控所有设置存储数据变量复位 函数
 //--------------------------------------------------//
@@ -61,9 +63,7 @@ void GPIOINT(void)
 	P6M0=0x00;P6M1=0x00;
 	P7M0=0x00;P7M1=0x00;
 }
-/*------------------------------------------------
-                  主函数
-------------------------------------------------*/
+
 void main(void)
 {	
 	unsigned char GGGXYZ[3];//手动校准修改变量
@@ -79,15 +79,13 @@ void main(void)
 	unsigned char SSLL;//通讯状态 变量
 	unsigned char Xiao;//发送效验包 变量
 
-
 	GPIOINT();		//单片机IO口初始化
 	Delay(10);		//延时一会
 	InitADC();		//单片机硬件ADC初始化
 	Delay(100);		//延时一会
 	LT8910_Init();	//无线2.4G模块初始化
 	Delay(100);		//延时一会
-	if(KAR==0)init_FKCanShu();//开机按下R键不放 进入微调参数变量初始值
-	//------------------------------------------------------------------//
+	if(KAR==0) init_FKCanShu();//开机按下R键不放 进入微调参数变量初始值
 	//读出摇杆中间值 
 	AD2=GetADCResult(1)/4; //航向
 	AD3=GetADCResult(2)/4; //横滚
@@ -147,7 +145,6 @@ void main(void)
 	}
 	AJkkk=AJout;//按键变化参数
 	
-	
 	//按键L 【上锁停飞】  发送命令值 （最终按键功能由飞控代码决定）
 	if(KAL==0){SZML=1;LED=1;Feng=0;Delay(300);Feng=1;}//上锁停飞
 
@@ -164,7 +161,6 @@ void main(void)
 	}
 
 	Xiao=SSLL+SZML+(YMout/0xff)+(YMout%0xff)+HXout+HGout+FYout+HengGun+FuYang+HangXiang;//计算出效验包
-
 	TxBuf[0]=SSLL++;		//发送 失联变量
 	TxBuf[1]=SZML;			//发送 命令值 1=上锁  5=解锁
 	TxBuf[2]=YMout/0xff;	//发送 油门参数 高2位 
@@ -178,6 +174,6 @@ void main(void)
 	TxBuf[10]=Xiao;			//发送 效验包
 
 	fs_shuju(TxBuf,15);		//执行将数据包发送出去
-	Delay(200);				//延时一会
+	Delay(200);				
 	}
 }

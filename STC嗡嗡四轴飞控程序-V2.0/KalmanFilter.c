@@ -1,7 +1,7 @@
-#include <STC15W4K48S4.h>	//STC15W4K48S4 专用头文件
-#include "KalmanFilter.h"  //卡尔曼滤波算法
+#include <STC15W4K48S4.h> //STC15W4K48S4 专用头文件
+#include "KalmanFilter.h" //卡尔曼滤波算法
 
-int KalmanFilter_ax( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
+int KalmanFilter_ax(int ResrcData, int ProcessNiose_Q, int MeasureNoise_R)
 {
    int R = MeasureNoise_R;
    int Q = ProcessNiose_Q;
@@ -9,21 +9,22 @@ int KalmanFilter_ax( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
    int ax_mid = ax_last;
    long ax_now;
    static int ax_p_last;
-   long p_mid ;
+   long p_mid;
    long p_now;
-   int kg;        
-	 long temp;
-   ax_mid=ax_last;
-   p_mid=ax_p_last+Q;
-	 temp=p_mid<<15;
-	 kg=(temp/((long)p_mid+R));
-   ax_now= ax_mid+(((long)kg*(ResrcData-ax_mid))>>15);
-   p_now=((long)p_mid*(32768-kg))>>15;      
+   int kg;
+   long temp;
+   ax_mid = ax_last;
+   p_mid = ax_p_last + Q;
+   temp = p_mid << 15;
+   kg = (temp / ((long)p_mid + R));
+   ax_now = ax_mid + (((long)kg * (ResrcData - ax_mid)) >> 15);
+   p_now = ((long)p_mid * (32768 - kg)) >> 15;
    ax_p_last = p_now;
    ax_last = ax_now;
-   return ax_now;                
- }
- int KalmanFilter_ay( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
+   return ax_now;
+}
+
+int KalmanFilter_ay(int ResrcData, int ProcessNiose_Q, int MeasureNoise_R)
 {
    int R = MeasureNoise_R;
    int Q = ProcessNiose_Q;
@@ -31,22 +32,23 @@ int KalmanFilter_ax( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
    int ay_mid = ay_last;
    long ay_now;
    static int ay_p_last;
-   long p_mid ;
+   long p_mid;
    long p_now;
-   int kg;        
-	 long temp;
-   ay_mid=ay_last;
-   p_mid=ay_p_last+Q; 
-   temp=p_mid<<15;
-	kg=(temp/((long)p_mid+R)); 
+   int kg;
+   long temp;
+   ay_mid = ay_last;
+   p_mid = ay_p_last + Q;
+   temp = p_mid << 15;
+   kg = (temp / ((long)p_mid + R));
 
-   ay_now= ay_mid+(((long)kg*(ResrcData-ay_mid))>>15);
-   p_now=((long)p_mid*(32768-kg))>>15;       
+   ay_now = ay_mid + (((long)kg * (ResrcData - ay_mid)) >> 15);
+   p_now = ((long)p_mid * (32768 - kg)) >> 15;
    ay_p_last = p_now;
    ay_last = ay_now;
-   return ay_now;                
- }
- int KalmanFilter_az( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
+   return ay_now;
+}
+
+int KalmanFilter_az(int ResrcData, int ProcessNiose_Q, int MeasureNoise_R)
 {
    int R = MeasureNoise_R;
    int Q = ProcessNiose_Q;
@@ -54,22 +56,23 @@ int KalmanFilter_ax( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
    int az_mid = az_last;
    long az_now;
    static int az_p_last;
-   long p_mid ;
+   long p_mid;
    long p_now;
-   int kg;        
-	long temp;
-   az_mid=az_last;
-   p_mid=az_p_last+Q;
-	temp=p_mid<<15;
-	kg=(temp/((long)p_mid+R)); 
+   int kg;
+   long temp;
+   az_mid = az_last;
+   p_mid = az_p_last + Q;
+   temp = p_mid << 15;
+   kg = (temp / ((long)p_mid + R));
 
-   az_now= az_mid+(((long)kg*(ResrcData-az_mid))>>15);
-   p_now=((long)p_mid*(32768-kg))>>15;      
+   az_now = az_mid + (((long)kg * (ResrcData - az_mid)) >> 15);
+   p_now = ((long)p_mid * (32768 - kg)) >> 15;
    az_p_last = p_now;
    az_last = az_now;
-   return az_now;                
- }
- /*
+   return az_now;
+}
+
+/*
 int KalmanFilter_gyrox( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
 {
    int R = MeasureNoise_R;
@@ -116,8 +119,9 @@ int KalmanFilter_gyrox( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
    gyroy_last = gyroy_now;
    return gyroy_now;                
 }
- */
-int KalmanFilter_gyroz( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
+*/
+
+int KalmanFilter_gyroz(int ResrcData, int ProcessNiose_Q, int MeasureNoise_R)
 {
    int R = MeasureNoise_R;
    int Q = ProcessNiose_Q;
@@ -125,19 +129,18 @@ int KalmanFilter_gyroz( int ResrcData,int ProcessNiose_Q,int MeasureNoise_R)
    int gyroz_mid = gyroz_last;
    long gyroz_now;
    static int gyroz_p_last;
-   long p_mid ;
+   long p_mid;
    long p_now;
-   int kg;        
+   int kg;
    long temp;
-   gyroz_mid=gyroz_last;
-   p_mid=gyroz_p_last+Q;
-   temp=p_mid<<15;
-   kg=(temp/((long)p_mid+R)); 
+   gyroz_mid = gyroz_last;
+   p_mid = gyroz_p_last + Q;
+   temp = p_mid << 15;
+   kg = (temp / ((long)p_mid + R));
 
-   gyroz_now= gyroz_mid+(((long)kg*(ResrcData-gyroz_mid))>>15);
-   p_now=((long)p_mid*(32768-kg))>>15;  
+   gyroz_now = gyroz_mid + (((long)kg * (ResrcData - gyroz_mid)) >> 15);
+   p_now = ((long)p_mid * (32768 - kg)) >> 15;
    gyroz_p_last = p_now;
    gyroz_last = gyroz_now;
-   return gyroz_now;                
+   return gyroz_now;
 }
-
