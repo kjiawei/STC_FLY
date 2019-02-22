@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5C74198C-4043-47ED-9177-F140C2FF0F8C}</ProjectGuid>
+    <RootNamespace>GECFLY_WIFI</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <UndefinePreprocessorDefinitions>_DEBUG;</UndefinePreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChartCtrlClass\ChartAxis.h" />
+    <ClInclude Include="ChartCtrlClass\ChartAxisLabel.h" />
+    <ClInclude Include="ChartCtrlClass\ChartBalloonLabel.h" />
+    <ClInclude Include="ChartCtrlClass\ChartBarSerie.h" />
+    <ClInclude Include="ChartCtrlClass\ChartCandlestickSerie.h" />
+    <ClInclude Include="ChartCtrlClass\ChartCrossHairCursor.h" />
+    <ClInclude Include="ChartCtrlClass\ChartCtrl.h" />
+    <ClInclude Include="ChartCtrlClass\ChartCursor.h" />
+    <ClInclude Include="ChartCtrlClass\ChartDateTimeAxis.h" />
+    <ClInclude Include="ChartCtrlClass\ChartDragLineCursor.h" />
+    <ClInclude Include="ChartCtrlClass\ChartFont.h" />
+    <ClInclude Include="ChartCtrlClass\ChartGanttSerie.h" />
+    <ClInclude Include="ChartCtrlClass\ChartGradient.h" />
+    <ClInclude Include="ChartCtrlClass\ChartGrid.h" />
+    <ClInclude Include="ChartCtrlClass\ChartLabel.h" />
+    <ClInclude Include="ChartCtrlClass\ChartLegend.h" />
+    <ClInclude Include="ChartCtrlClass\ChartLineSerie.h" />
+    <ClInclude Include="ChartCtrlClass\ChartLogarithmicAxis.h" />
+    <ClInclude Include="ChartCtrlClass\ChartMouseListener.h" />
+    <ClInclude Include="ChartCtrlClass\ChartPointsArray.h" />
+    <ClInclude Include="ChartCtrlClass\ChartPointsSerie.h" />
+    <ClInclude Include="ChartCtrlClass\ChartScrollBar.h" />
+    <ClInclude Include="ChartCtrlClass\ChartSerie.h" />
+    <ClInclude Include="ChartCtrlClass\ChartSerieBase.h" />
+    <ClInclude Include="ChartCtrlClass\ChartSeriesMouseListener.h" />
+    <ClInclude Include="ChartCtrlClass\ChartStandardAxis.h" />
+    <ClInclude Include="ChartCtrlClass\ChartString.h" />
+    <ClInclude Include="ChartCtrlClass\ChartSurfaceSerie.h" />
+    <ClInclude Include="ChartCtrlClass\ChartTitle.h" />
+    <ClInclude Include="ChartCtrlClass\ChartXYSerie.h" />
+    <ClInclude Include="ChartCtrlClass\PointsOrdering.h" />
+    <ClInclude Include="GECFLY_WIFI.h" />
+    <ClInclude Include="GECFLY_WIFIDlg.h" />
+    <ClInclude Include="Param.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChartCtrlClass\ChartAxis.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartAxisLabel.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartBarSerie.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartCandlestickSerie.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartCrossHairCursor.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartCtrl.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartCursor.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartDateTimeAxis.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartDragLineCursor.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartFont.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartGanttSerie.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartGradient.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartGrid.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartLegend.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartLineSerie.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartLogarithmicAxis.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartPointsSerie.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartScrollBar.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartSerie.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartStandardAxis.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartSurfaceSerie.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartTitle.cpp" />
+    <ClCompile Include="ChartCtrlClass\ChartXYSerie.cpp" />
+    <ClCompile Include="GECFLY_WIFI.cpp" />
+    <ClCompile Include="GECFLY_WIFIDlg.cpp" />
+    <ClCompile Include="Param.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GECFLY_WIFI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChartCtrlClass\ChartBalloonLabel.inl" />
+    <None Include="ChartCtrlClass\ChartLabel.inl" />
+    <None Include="ChartCtrlClass\ChartPointsArray.inl" />
+    <None Include="ChartCtrlClass\ChartSerieBase.inl" />
+    <None Include="res\GECFLY_WIFI.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\GECFLY_WIFI.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="GECFLY_WIFI.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
